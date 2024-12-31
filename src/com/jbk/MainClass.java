@@ -16,8 +16,17 @@ public class MainClass {
 		Session ss = sf.openSession();
 		Transaction tr = ss.beginTransaction();
 
-		Books s = new Books();
-		System.out.println("appln is started...");
+		Books b = new Books();
+		b.setBook_id(101);
+		b.setTitle("Making India Awesome");
+		b.setAuthor("Chetan Bhagat");
+		b.setGenre("Non-Fiction");
+		b.setPrice(1200);
+		ss.persist(b);
+		tr.commit();
+		ss.close();
+		
+		System.out.println(b);
 	}
 
 }
